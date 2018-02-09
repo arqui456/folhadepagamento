@@ -9,7 +9,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		int a;
 		ArrayList<Employee> allEmployees = new ArrayList<Employee>();
 		Scanner input = new Scanner(System.in);
 		String answer;

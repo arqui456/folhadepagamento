@@ -8,6 +8,7 @@ public class Employee {
 	public String getName() {
 		return name;
 	}
+private int b;
 
 	public void setName(String name) {
 		this.name = name;
