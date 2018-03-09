@@ -60,7 +60,7 @@ public class Employee {
 	private String dailyHours;
 	private Scanner input = new Scanner(System.in);
 	private String answer;
-	private int options;
+	private String options;
 	private boolean syndicated;
 	private String paymentMethod;
 	private int syndicateID;
@@ -68,7 +68,6 @@ public class Employee {
 	
 	
 	public Employee(){
-		//System.out.println("O nome inserido foi " + answer + "!");
 		System.out.println("Insira o nome do funcionário: ");		
 		answer = input.nextLine();
 		this.name = answer;
@@ -79,24 +78,11 @@ public class Employee {
 		answer = input.nextLine();
 		this.type = answer;
 		System.out.println("Insira o salário do funcionário: ");		
-		options = input.nextInt();
-		this.salary = options;
+		options = input.nextLine();
+		this.salary = Integer.parseInt(options);
 	}
 
-	public Employee addEmployee() {
-		return null;
-		// TODO Auto-generated method stub
-		
-		
-	}
-
-	public void removeEmployee() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void editEmployee(Employee employee) {
-		// TODO Auto-generated method stub
+	public void edit() {
 		String temp;
 		
 		System.out.println();
@@ -112,63 +98,56 @@ public class Employee {
 		System.out.println("6 - Editar Identificação do sindicato");
 		System.out.println("7 - Editar Taxa sindical");
 		System.out.println("8 - Sair");
-		options = input.nextInt();
-		input.nextLine();
+		options = input.nextLine();
+		int choice = Integer.parseInt(options);
+		while(choice < 1 || choice > 8) {
+			System.out.println("invalid input, try again: ");
+			options = input.nextLine();
+			choice = Integer.parseInt(options);
+		}
+		//input.nextLine();
 		
-		if(options == 1)
-		{
-			temp = this.name;
-			System.out.println("Digite o novo nome: ");
-			answer = input.nextLine();
-			this.name = answer;
-			System.out.println("Nome alterado de \""+ temp + "\" para \"" + this.name + "\" com sucesso!");
-		}
-		else if (options == 2)
-		{
-			System.out.println("Digite o novo endereço: ");
-			answer = input.nextLine();
-			this.address = answer;
-			System.out.println("Endereço alterado com sucesso!");
-		}
-		else if(options == 3)
-		{
-			System.out.println("Digite o Tipo de funcionário: ");
-			answer = input.nextLine();
-			this.type = answer;
-			System.out.println("Tipo de funcionário alterado com sucesso!");
-			
-		}
-		else if(options == 4)
-		{
-			System.out.println("Digite o novo Método de pagamento: ");
-			answer = input.nextLine();
-			this.paymentMethod = answer;
-			System.out.println("Método de pagamento alterado com sucesso!");
-			
-		}
-		else if(options == 5)
-		{
-			System.out.println("O funcionário é associado ao sindicato? ");
-			this.syndicated = input.nextBoolean();
-			System.out.println("Associação alterada com sucesso!");			
-		}
-		else if(options == 6)
-		{
-			System.out.println("Digita a nova ID do sindicato: ");
-			this.syndicateID = input.nextInt();
-			System.out.println("Associação alterada com sucesso!");			
-		}
-		else if(options == 7)
-		{
-			System.out.println("Digite a nova taxa sindical: ");
-			this.taxes = input.nextInt();
-			System.out.println("Taxa sindical alterada com sucesso!");			
-		}
-		
+		switch (choice) {
+		    case 1:
+				temp = this.name;
+				System.out.println("Digite o novo nome: ");
+				answer = input.nextLine();
+				this.name = answer;
+				System.out.println("Nome alterado de \""+ temp + "\" para \"" + this.name + "\" com sucesso!");
+			    break;
+		    case 2:
+				System.out.println("Digite o novo endereço: ");
+				answer = input.nextLine();
+				this.address = answer;
+				System.out.println("Endereço alterado com sucesso!");
+			    break;
+		    case 3:
+				System.out.println("Digite o Tipo de funcionário: ");
+				answer = input.nextLine();
+				this.type = answer;
+				System.out.println("Tipo de funcionário alterado com sucesso!");
+				break;
+		    case 4:
+				System.out.println("Digite o novo Método de pagamento: ");
+				answer = input.nextLine();
+				this.paymentMethod = answer;
+				System.out.println("Método de pagamento alterado com sucesso!");
+				break;
+		    case 5:
+				System.out.println("O funcionário é associado ao sindicato? ");
+				this.syndicated = input.nextBoolean();
+				System.out.println("Associação alterada com sucesso!");			
+			    break;
+		    case 6:
+				System.out.println("Digita a nova ID do sindicato: ");
+				this.syndicateID = input.nextInt();
+				System.out.println("Associação alterada com sucesso!");			
+			    break;
+		    case 7:
+				System.out.println("Digite a nova taxa sindical: ");
+				this.taxes = input.nextInt();
+				System.out.println("Taxa sindical alterada com sucesso!");			
+			    break;
+		}		
 	}
-	
-	
-	
-	
-	
 }
